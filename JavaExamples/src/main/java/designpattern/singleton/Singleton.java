@@ -3,7 +3,7 @@ package designpattern.singleton;
  * 单例模式的三种写法
  */
 
-//
+
 
 /**
  * output：
