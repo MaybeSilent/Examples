@@ -56,6 +56,7 @@ public class server {
                     if (bytesRead == -1) {
                         // 没有读取到内容，则channel关闭
                         clientChannel.close();
+                        //clientChannel.close(); test if clientChannel can be closed twice
                     } else {
                         // 已读取到内容，则将缓冲区转换为传出状态
                         buffer.flip();

@@ -1,0 +1,8 @@
+三月 26, 2019 9:45:42 下午 logger.UseLogger doSomeThingAndLog
+严重: Info Log
+三月 26, 2019 9:45:42 下午 logger.UseLogger doSomeThingAndLog
+严重: Info Log
+三月 26, 2019 9:45:42 下午 logger.UseLogger doSomeThingAndLog
+警告: Info Log
+三月 26, 2019 9:45:42 下午 logger.UseLogger doSomeThingAndLog
+信息: Info Log
