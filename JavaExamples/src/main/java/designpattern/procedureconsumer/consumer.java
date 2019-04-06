@@ -10,14 +10,14 @@ class consumer implements Runnable {
     }
 
     public void run() {
-        for(int i = 0 ; i < 10 ; i++){
+        for (int i = 0; i < 10; i++) {
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            synchronized(lock){
-                while(container.isempty()){
+            synchronized (lock) {
+                while (container.isempty()) {
                     try {
                         lock.wait();
                     } catch (Exception e) {

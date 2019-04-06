@@ -11,7 +11,7 @@ class procedureconsumer implements Runnable {
 
     @Override
     public void run() {
-        for(int i = 0 ; i < 10 ; i++){
+        for (int i = 0; i < 10; i++) {
             //System.out.println("endsleeping");
             synchronized (lock) {
                 while (container.isfull()) {
@@ -26,7 +26,7 @@ class procedureconsumer implements Runnable {
                 container.add(num);
                 lock.notifyAll();
                 System.out.println(Thread.currentThread().getName() + ": add num of " + num);
-                
+
             }
         }
     }

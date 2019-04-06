@@ -4,23 +4,23 @@ package designpattern.singleton;
  */
 
 
-
 /**
  * output：
  * 第一种，最简单的写法
  * 缺点：从类初始化开始就存在，并未实现延迟加载机制
  */
-class firstSingle{
+class firstSingle {
     //static final 
-    private  static final firstSingle  INSTANCE = new firstSingle();
+    private static final firstSingle INSTANCE = new firstSingle();
 
-    private firstSingle(){  
+    private firstSingle() {
         System.out.println("first singleton inited");
     }
 
-    public static firstSingle getInstance(){
+    public static firstSingle getInstance() {
         return INSTANCE;
     }
+
     public static void main(String[] args) {
         System.out.println("enter main");
         firstSingle first = firstSingle.getInstance();
@@ -28,20 +28,21 @@ class firstSingle{
         System.out.println(first == second);
     }
 }
+
 /**
  * 双重判断实现单例模式 ， 能够实现相应的延迟加载机制 ，且效率也较高
  */
-class secondSingle{
+class secondSingle {
     private static volatile secondSingle INSTANCE;
-    
-    private secondSingle(){ 
+
+    private secondSingle() {
         System.out.println("second inited");
     }
 
-    public static secondSingle getInstance(){
-        if(INSTANCE == null){
-            synchronized(secondSingle.class){
-                if(INSTANCE == null){
+    public static secondSingle getInstance() {
+        if (INSTANCE == null) {
+            synchronized (secondSingle.class) {
+                if (INSTANCE == null) {
                     INSTANCE = new secondSingle();
                 }
             }
@@ -49,21 +50,21 @@ class secondSingle{
         return INSTANCE;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         System.out.println("example inited"); //用于验证延迟加载
         secondSingle first = secondSingle.getInstance();
         secondSingle second = secondSingle.getInstance();
         System.out.println(first == second);
     }
-    
+
 }
 
 /**
  * 通过静态内部类来实现相应的单例模式
  */
 
- class thirdSingle{
-    private static class innerSingle{
+class thirdSingle {
+    private static class innerSingle {
         private final static thirdSingle INSTANCE = new thirdSingle();
     }
 
@@ -71,7 +72,7 @@ class secondSingle{
         System.out.println("first single inited");
     }
 
-    public static thirdSingle getInstance(){
+    public static thirdSingle getInstance() {
         return innerSingle.INSTANCE;
     }
 
@@ -81,14 +82,14 @@ class secondSingle{
         thirdSingle second = thirdSingle.getInstance();
         System.out.println(first == second);
     }
-     
- }
+
+}
 
 /**
  * static 变量的声明周期
  * 静态变量 ==> 静态代码块初始化
  */
-public class Singleton{
+public class Singleton {
     public static void main(String[] args) {
         System.out.println("enter out main");
         firstSingle first = firstSingle.getInstance();

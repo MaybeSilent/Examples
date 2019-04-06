@@ -1,4 +1,5 @@
 package demos;
+
 /**
  * wait notify简单交替打印相应的内容
  */

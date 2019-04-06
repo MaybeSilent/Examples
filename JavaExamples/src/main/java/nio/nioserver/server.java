@@ -63,9 +63,9 @@ public class server {
                         String receivedString = Charset.forName("UTF-8").newDecoder().decode(buffer).toString();
                         // 在控制台输出接受到的信息
                         String currentTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(System.currentTimeMillis());
-                        System.out.println(currentTime+"接收到信息:" + receivedString);
+                        System.out.println(currentTime + "接收到信息:" + receivedString);
                         // 返回给client的信息
-                        String sendString = currentTime+ "已接收到来自client所发送的信息：" ;
+                        String sendString = currentTime + "已接收到来自client所发送的信息：";
                         buffer = ByteBuffer.wrap(sendString.getBytes("UTF-8"));
                         System.out.println("开始输出buffer");
                         clientChannel.write(buffer);
@@ -75,7 +75,7 @@ public class server {
                         key.interestOps(SelectionKey.OP_READ | SelectionKey.OP_WRITE);
                     }
                 }
-                
+
                 iter.remove();
             }
         }
